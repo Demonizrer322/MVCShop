@@ -1,5 +1,5 @@
-        <!--slider section start-->
-        <div class="hero-section section position-relative">
+    <!--slider section start-->
+    <div class="hero-section section position-relative">
             <div class="hero-slider section">
 
                 <!--Hero Item start-->
