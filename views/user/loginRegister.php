@@ -38,7 +38,7 @@
                                         <input name="Password" value="" type="password">
                                     </div>
                                     <div class="login-submit">
-                                        <button type="submit" class="btn">Login</button>
+                                        <button id="enterBtn" type="submit" class="btn">Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -74,7 +74,7 @@
                                         <input name="Phone" value="" type="phone">
                                     </div>
                                     <div class="register-submit">
-                                        <button type="submit" class="btn">Register</button>
+                                        <button id="enter" type="submit" class="btn">Register</button>
                                     </div>
                                 </form>
                             </div>

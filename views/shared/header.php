@@ -1,3 +1,7 @@
+<?php
+    if (!isset($_SESSION)) session_start();
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -65,7 +69,18 @@
                                         <!--Crunccy dropdown-->
                                         <ul class="currency-dropdown">
                                             <!--Account Currency Start-->
-                                            <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount"><?=$_SESSION['Email']?></a>
+                                            <li id="accountContainer">
+                                        <?php
+                                            if(!empty($_SESSION["Email"])){
+                                        ?>
+                                                <a id="enterAccount" href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount"><?=$_SESSION['Email']?></a>
+                                        <?php
+                                            } else {
+                                        ?>
+                                                <a id="myAccount" href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount">My Account</a>
+                                        <?php
+                                            }
+                                        ?>
                                                 <ul>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/loginRegister">Login</a></li>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/checkout">Checkout</a></li>

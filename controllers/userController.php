@@ -9,9 +9,9 @@
             {
                 if ($user = userModel::varification($_POST['Email']))
                 {
-                    $userPassword=new userModel;
+                    $userPassword = new userModel;
                     $userPassword->Password=$_POST['Password'];
-                    $password=$userPassword::passwordHasher();
+                    $password = $userPassword::passwordHasher();
                     if($password == $user->Password)
                     {
                         $this->autorizationAction($user->Email);
@@ -28,10 +28,14 @@
                     $user = new userModel;
                     if($user->tryMap($_POST)){
                         $user->insert();
+                        $this->autorizationAction($user->Email);
                         $this->render('views/home/index.php', ['layout'=>True]);
                     }
                 }
             }
+        }
+        public function logoutAction(){
+
         }
         public function checkoutAction(){
             $this->render('views/user/checkout.php', ['layout'=>True]);
