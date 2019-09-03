@@ -41,7 +41,7 @@
 
                                     <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
 
-                                    <a href="login-register.php"><i class="fa fa-sign-out"></i> Logout</a>
+                                    <a href="/user/logout"><i class="fa fa-sign-out"></i> Logout</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End -->

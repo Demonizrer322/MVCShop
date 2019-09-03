@@ -35,7 +35,9 @@
             }
         }
         public function logoutAction(){
-
+            if(!isset($_SESSION)) session_start();            
+            session_destroy();
+            $this->render('views/home/index.php', ['layout'=>True]);
         }
         public function checkoutAction(){
             $this->render('views/user/checkout.php', ['layout'=>True]);
