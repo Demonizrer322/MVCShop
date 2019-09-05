@@ -1,0 +1,51 @@
+CREATE DATABASE IF NOT EXISTS `mvcshop`
+
+-----------------------------------------
+
+CREATE TABLE IF NOT EXISTS `users`
+(Id int PRIMARY KEY AUTO_INCREMENT,
+ Name varchar(20),
+ Surname varchar(20),
+ Patronym varchar(20),
+ `Email` varchar(50),
+ Password varchar(50),
+ Phone varchar(25),
+ Age int);
+ 
+CREATE TABLE IF NOT EXISTS `products`
+ (Id int PRIMARY KEY AUTO_INCREMENT,
+  Name varchar(50),
+  QuantityInStock int,
+  Discription varchar(500),
+  Price float(10),
+  Category varchar(30),
+  ProductImage varchar(50));
+  
+CREATE TABLE IF NOT EXISTS `busket`
+(Id int PRIMARY KEY AUTO_INCREMENT,
+ UserId int,
+ ProductId int,
+ Price float(10),
+ `Count` int,
+ Amount float(10),
+ `Date` varchar(20));
+
+--------------------------------------------
+
+ALTER TABLE `busket`
+ADD FOREIGN KEY (UserId) REFERENCES `users`(Id);
+
+ALTER TABLE `busket`
+ADD FOREIGN KEY (ProductId) REFERENCES `products`(Id);
+
+--------------------------------------------
+
+CREATE VIEW `vshop` (`UserId`,`Name`,`Surname`,`Patronym`,`Email`,`Password`,`Phone`,`Age`,`ProductId`,`ProductName`,`Quantity`,`Discription`,`Price`,`Category`,`ProductImg`,`OrderNumber`,`bUserId`,`bProductId`,`bPrice`,`bCount`,`bAmount`,`bDate`)
+AS
+SELECT `users`.`Id`,`users`.`Name`,`Surname`,`Patronym`,`Email`,`Password`,`Phone`,`Age`,
+	   `products`.`Id`,`products`.`Name`,`QuantityInStock`,`Discription`,`products`.`Price`,`Category`,`ProductImage`,
+       `busket`.`Id`,`UserId`,`ProductId`,`busket`.`Price`,`Count`,`Amount`,`Date`
+FROM `users` INNER JOIN `busket` ON `users`.`Id` = `busket`.`UserId`
+			 INNER JOIN `products` ON `products`.`Id` = `busket`.`ProductId`
+GROUP BY `users`.`Id`,`products`.`Id`,`busket`.`Id`
+
