@@ -87,30 +87,6 @@
                                             <td class="pro-remove"><button><i class="fa fa-trash-o"></i></button></td>
                                             <td class="pro-remove"><button><i class="fa fa-trash-o"></i></button></td>
                                         </tr>
-                                        <tr>
-                                            <td class="first-column">Rating</td>
-                                            <td class="pro-ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </td>
-                                            <td class="pro-ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </td>
-                                            <td class="pro-ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
