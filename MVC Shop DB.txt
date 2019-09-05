@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `products`
  (`Id` int PRIMARY KEY AUTO_INCREMENT,
   `Name` varchar(50),
   `QuantityInStock` int,
-  `Discription` varchar(500),
+  `Description` varchar(500),
   `Price` float(10),
   `ProductImageId` int);
 
@@ -22,9 +22,7 @@ CREATE TABLE IF NOT EXISTS `category`
  (`Id` int PRIMARY KEY AUTO_INCREMENT,
   `Name` varchar(255) NOT NULL,
   `Description` text NOT NULL,
-  `Position` tinyint(4) NOT NULL,
-  `Img` varchar(255) NOT NULL,
-  `Url` varchar(255) NOT NULL);
+  `Position` tinyint(4) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS `categoryproduct` 
  (`CategoryId` int NOT NULL,
@@ -73,12 +71,14 @@ ADD FOREIGN KEY (ProductId) REFERENCES `products`(Id);
 
 --------------------------------------------
 
-CREATE VIEW `vshop` (`UserId`,`Name`,`Surname`,`Patronym`,`Email`,`Password`,`Phone`,`Age`,`ProductId`,`ProductName`,`Quantity`,`Discription`,`Price`,`Category`,`ProductImg`,`OrderNumber`,`bUserId`,`bProductId`,`bPrice`,`bCount`,`bAmount`,`bDate`)
+CREATE VIEW `vproduct` (`ProductId`,`ProductName`,`Quantity`,`ProductDescription`,`ProductPrice`,`ProductImgId`,`CategoryId`,`CategoryName`,`CategoryDescription`,`CategoryPosition`,`MCategoryId`,`MProductId`,`ImgId`,`ImgProductId`,`ImgPosition`,`ImgUrl`)
 AS
-SELECT `users`.`Id`,`users`.`Name`,`Surname`,`Patronym`,`Email`,`Password`,`Phone`,`Age`,
-	   `products`.`Id`,`products`.`Name`,`QuantityInStock`,`Discription`,`products`.`Price`,`Category`,`ProductImage`,
-       `busket`.`Id`,`UserId`,`ProductId`,`busket`.`Price`,`Count`,`Amount`,`Date`
-FROM `users` INNER JOIN `busket` ON `users`.`Id` = `busket`.`UserId`
-			 INNER JOIN `products` ON `products`.`Id` = `busket`.`ProductId`
-GROUP BY `users`.`Id`,`products`.`Id`,`busket`.`Id`
+SELECT `products`.`Id`,`products`.`Name`,`QuantityInStock`,`products`.`Description`,`products`.`Price`,`products`.`ProductImageId`,
+       `category`.`Id`,`category`.`Name`,`category`.`Description`,`category`.`Position`,
+       `categoryproduct`.`CategoryId`,`categoryproduct`.`ProductId`,
+       `productimg`.`Id`,`productimg`.`ProductId`,`productimg`.`Position`,`productimg`.`Url`
+FROM `products` INNER JOIN `categoryproduct` ON `products`.`Id` = `categoryproduct`.`ProductId`
+		INNER JOIN `category` ON `category`.`Id` = `categoryproduct`.`CategoryId`
+		INNER JOIN `productimg` ON `productimg`.`ProductId` = `products`.`Id`
+GROUP BY `products`.`Id`,`category`.`Id`,`productimg`.`Id`
 
