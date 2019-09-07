@@ -6,7 +6,7 @@ use \PDO;
 class productModel extends baseModel {
     const tableName = 'products';
     public function rules(){
-        return ['Id','Name','QuantityInStock','Description','Price','ProductImageId'];
+        return ['Id','Name','QuantityInStock','Description','Price','MainImage','ProductImageId'];
     }
 
     public static function selectAll(){

@@ -30,10 +30,7 @@
                                         <div class="grid-list-option d-flex">
                                             <ul class="nav">
                                                 <li>
-                                                    <a class="active show" data-toggle="tab" href="#grid"><i class="fa fa-th"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a data-toggle="tab" href="#list" class=""><i class="fa fa-th-list"></i></a>
+                                                    <a class="show" data-toggle="tab" href="#grid"><i class="fa fa-th"></i></a>
                                                 </li>
                                             </ul>
                                             <p>Showing 1–9 of 41 results</p>
@@ -59,29 +56,30 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
+                                
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="shop-product">
+                                        
                                                 <div id="myTabContent-2" class="tab-content">
                                                     <div id="grid" class="tab-pane fade active show">
                                                         <div class="product-grid-view">
-                                                        <?php
-                                                            foreach($model as $row)
-                                                            {
-                                                                var_dump($model);
-                                                        ?>
+                                                        
                                                             <div class="row">
+                                                            <?php
+                                                                for($a = 0; $a < 9; $a++)
+                                                                {
+                                                            ?>
                                                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                                                     <!--  Single Grid product Start -->
+                                                                    
                                                                     <div class="single-grid-product mb-40">
                                                                         <div class="product-image">
-                                                                            <div class="product-label">
+                                                                            <!-- <div class="product-label">
                                                                                 <span>-20%</span>
-                                                                            </div>
-                                                                            <a href="single-product.php">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-1.jpg" class="img-fluid" alt="">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                                                            </a>
+                                                                            </div> -->
+                                                                            <a href="/product/singleProductTabstyle3">
+                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt="">                                                                            </a>
 
                                                                             <div class="product-action">
                                                                                 <ul>
@@ -92,22 +90,26 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="product-content">
-                                                                            <h3 class="title"> <a href="single-product.php"><?=$model->Name?></a></h3>
-                                                                            <p class="product-price"><span class="discounted-price">$190.00</span> <span class="main-price discounted">$230.00</span></p>
+                                                                            <h3 class="title"> <a href="single-product.php"><?=$model[$a]->Name?></a></h3>
+                                                                            <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$model[$a]->Price?></span></p>
                                                                         </div>
                                                                     </div>
+                                                                    
                                                                     <!--  Single Grid product End -->
                                                                 </div>
+                                                            <?php
+                                                                }
+                                                            ?>
                                                             </div>
-                                                        <?php
-                                                            }
-                                                        ?>
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="row mb-30 mb-sm-40 mb-xs-30">
                                         <div class="col">
                                             <ul class="page-pagination">

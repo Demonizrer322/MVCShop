@@ -6,7 +6,6 @@
     class productController extends baseController {
         public function shopThreeColumnAction(){
             $model = productModel::selectAll();
-            var_dump($model);
             $this->render('views/product/shopThreeColumn.php', ['layout'=>True, 'model'=>$model]);
         }
         public function cartAction(){
