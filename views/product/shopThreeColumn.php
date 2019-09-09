@@ -78,7 +78,7 @@
                                                                             <!-- <div class="product-label">
                                                                                 <span>-20%</span>
                                                                             </div> -->
-                                                                            <a href="/product/singleProductTabstyle3">
+                                                                            <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>">
                                                                                 <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt="">                                                                            </a>
 
                                                                             <div class="product-action">
@@ -90,7 +90,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="product-content">
-                                                                            <h3 class="title"> <a href="single-product.php"><?=$model[$a]->Name?></a></h3>
+                                                                            <h3 class="title"> <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>"><?=$model[$a]->Name?></a></h3>
                                                                             <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$model[$a]->Price?></span></p>
                                                                         </div>
                                                                     </div>

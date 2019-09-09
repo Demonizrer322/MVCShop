@@ -33,6 +33,33 @@ class productModel extends baseModel {
             return $resArray;
         }
     }
-
-
+    public static function singleProduct(){
+        try 
+        {
+            $conn = new PDO("mysql:host=".self::ServerName.";dbname=".self::DBName, self::UserName, self::Password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql="SELECT * FROM ".self::tableName;
+            $stmt = $conn->prepare("SELECT * 
+                                    FROM `".self::tableName."`
+                                    WHERE `Id` = :Id");
+                $IdProduct = trim(htmlspecialchars($_GET['IdProduct']));
+                $stmt->bindParam(':Id', $IdProduct);
+            $stmt->execute();
+            $resArray=[];
+            foreach ($stmt as $array) { 
+                $model = new productModel;
+                $model->tryMap($array);
+                array_push($resArray, $model);
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        finally
+        {
+            $conn = NULL;
+            return $resArray;
+        }
+    }
 }
