@@ -32,16 +32,16 @@
 
                                     <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 
-                                    <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>
+                                    <!-- <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a> -->
 
-                                    <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
-                                        Method</a>
+                                    <!-- <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
+                                        Method</a> -->
 
-                                    <a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
+                                    <!-- <a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i> address</a> -->
 
                                     <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
 
-                                    <a href="login-register.php"><i class="fa fa-sign-out"></i> Logout</a>
+                                    <a href="/user/logout"><i class="fa fa-sign-out"></i> Logout</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End -->
@@ -55,7 +55,8 @@
                                             <h3>Dashboard</h3>
 
                                             <div class="welcome mb-20">
-                                                <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
+                                            
+                                                <p>Hello, <strong><?=$_SESSION["Name"]?>  <?=$_SESSION["Surname"]?>  </strong> (If Not <strong><?=$_SESSION["Name"]?>  <?=$_SESSION["Surname"]?> !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
                                             </div>
 
                                             <p class="mb-0">From your account dashboard. you can easily check &amp; view your
@@ -116,7 +117,7 @@
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade" id="download" role="tabpanel">
+                                    <!-- <div class="tab-pane fade" id="download" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Downloads</h3>
 
@@ -148,21 +149,21 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade" id="payment-method" role="tabpanel">
+                                    <!-- <div class="tab-pane fade" id="payment-method" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Payment Method</h3>
 
                                             <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade" id="address-edit" role="tabpanel">
+                                    <!-- <div class="tab-pane fade" id="address-edit" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Billing Address</h3>
 
@@ -175,7 +176,7 @@
 
                                             <a href="#" class="btn d-inline-block edit-address-btn"><i class="fa fa-edit"></i>Edit Address</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
@@ -184,22 +185,22 @@
                                             <h3>Account Details</h3>
 
                                             <div class="account-details-form">
-                                                <form action="#">
+                                                <form action="/user/edit" method="POST">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-12 mb-30">
-                                                            <input id="first-name" placeholder="First Name" type="text">
+                                                            <input name="name" placeholder="<?=$_SESSION["Name"]?>" type="text">
                                                         </div>
 
                                                         <div class="col-lg-6 col-12 mb-30">
-                                                            <input id="last-name" placeholder="Last Name" type="text">
+                                                            <input name="surname" placeholder="<?=$_SESSION["Surname"]?>" type="text">
                                                         </div>
 
                                                         <div class="col-12 mb-30">
-                                                            <input id="display-name" placeholder="Display Name" type="text">
+                                                            <input name="phone" placeholder="<?=$_SESSION["Phone"]?>" type="text">
                                                         </div>
 
                                                         <div class="col-12 mb-30">
-                                                            <input id="email" placeholder="Email Address" type="email">
+                                                            <input name="email" placeholder="<?=$_SESSION["Email"]?>" type="email">
                                                         </div>
 
                                                         <div class="col-12 mb-30">
@@ -207,15 +208,15 @@
                                                         </div>
 
                                                         <div class="col-12 mb-30">
-                                                            <input id="current-pwd" placeholder="Current Password" type="password">
+                                                            <input name="currentPwd" placeholder="Current Password" type="password">
                                                         </div>
 
                                                         <div class="col-lg-6 col-12 mb-30">
-                                                            <input id="new-pwd" placeholder="New Password" type="password">
+                                                            <input name="newPwd" placeholder="New Password" type="password">
                                                         </div>
 
                                                         <div class="col-lg-6 col-12 mb-30">
-                                                            <input id="confirm-pwd" placeholder="Confirm Password" type="password">
+                                                            <input name="confirmPwd" placeholder="Confirm Password" type="password">
                                                         </div>
 
                                                         <div class="col-12">
@@ -239,35 +240,3 @@
             </div>
         </div>
         <!--My Account section end-->
-        <!-- Newsletter Section Start -->
-        <div class="newsletter-section section bg-gray-two pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-95 pb-lg-75 pb-md-65 pb-sm-60 pb-xs-50">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h2>Subscribe Our Newsletter</h2>
-                            <p>Subscribe Today for free and save 10% on your first purchase.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="newsletter-wrap">
-                            <div class="newsletter-form">
-                                <form id="mc-form" class="mc-form">
-                                    <input type="email" placeholder="Enter Your Email Address Here..." required>
-                                    <button type="submit" value="submit">SUBSCRIBE!</button>
-                                </form>
-
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Section End -->

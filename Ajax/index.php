@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="ConteinerDiv">
-        <div id="Conteiner">
+    <div id="ContainerDiv">
+        <div id="Container">
             <h1>HELLO</h1>
         </div>
     </div>
-    <button id="loadAjax">loadAjax</button>
-    <table border='1'>
+    <button id="loadAjax">LoadAjax</button>
+    <table border="1">
         <thead>
             <tr>
                 <th>1</th>
@@ -23,9 +23,10 @@
             </tr>
         </thead>
         <tbody id="myTable">
+
         </tbody>
     </table>
-    <button id="PostAjax">PostAjax</button>
+    <button id="postAjax">PostAjax</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

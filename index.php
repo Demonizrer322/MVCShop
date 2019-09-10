@@ -6,7 +6,10 @@ $controllerName= (isset($requestUri[1])&&!empty($requestUri[1])) ? $requestUri[1
 $controllerPath='controllers/'.$controllerName.'Controller.php';
 try
 {
-    if (file_exists($controllerPath)){
+    if (!file_exists($controllerPath)){
+        $controllerName="home";
+        $controllerPath='controllers/'.$controllerName.'Controller.php';
+    }
         $controllerName=$controllerName.'Controller';
         $controllerNew='controllers\\'.$controllerName;
         $controller = new $controllerNew;
@@ -18,16 +21,9 @@ try
         } else {
             throw new Exception("Method $actionName not found in Controller class  $controllerName in file $controllerPath");
         }
-    } else {
-        throw new Exception("Controller file not found $controllerPath");
-    }
 }
 catch (Exception $ex){
     
     require_once("views/shared/error.php");
     echo $ex->getMessage();
 }
-finally{
-
-}
-// commit aaddd

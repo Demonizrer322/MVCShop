@@ -1,5 +1,5 @@
 <?php
-    if (session_status()<>2) session_start();    
+    if (!isset($_SESSION)) session_start();
 ?>
 
 <!doctype html>
@@ -45,7 +45,7 @@
                                 <nav class="main-menu">
                                     <ul>
                                         <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/home/index">Home</a></li>
-                                        <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/shop/index">Shop</a></li>
+                                        <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/shopThreeColumn">Shop</a></li>
                                         <li><a href="#">Pages</a>
                                             <ul class="sub-menu">
                                                 <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/compare">Compare</a></li>
@@ -64,25 +64,28 @@
                             <!--Header Search And Mini Cart Area Start-->
                             <div class="header-search-cart-area">
                                 <ul>
-                                <?php
-                                    if (isset($_SESSION["login"])){
-                                ?>
-                                    <li class="mini-cart"><?php echo $_SESSION["login"];?></li>
-                                <?php
-                                    }
-                                ?>
                                     <li><a class="header-search-toggle" href="#"><i class="flaticon-magnifying-glass"></i></a></li>
                                     <li class="currency-menu"><a href="#"><i class="flaticon-user"></i></a>
                                         <!--Crunccy dropdown-->
                                         <ul class="currency-dropdown">
                                             <!--Account Currency Start-->
-                                            <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount">My account</a>
+                                            <li id="accountContainer">
+                                        <?php
+                                            if(!empty($_SESSION["Email"])){
+                                        ?>
+                                                <a id="enterAccount" href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount"><?=$_SESSION['Email']?></a>
+                                        <?php
+                                            } else {
+                                        ?>
+                                                <a id="myAccount" href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount">My Account</a>
+                                        <?php
+                                            }
+                                        ?>
                                                 <ul>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/loginRegister">Login</a></li>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/checkout">Checkout</a></li>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/myAccount">My account</a></li>
                                                     <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/cart">Cart</a></li>
-                                                    <li><a href='user/Exite'>Exite</a></li>
                                                 </ul>
                                             </li>
                                             <!--Account Currency End-->
@@ -133,7 +136,6 @@
                                         </div>
                                         <!--Mini Cart Dropdown End-->
                                     </li>
-                                    
                                 </ul>
                             </div>
                             <!--Header Search And Mini Cart Area End-->

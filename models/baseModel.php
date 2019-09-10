@@ -6,7 +6,10 @@
         public function tryMap($data){
             $rules = $this->rules();
             foreach($rules as $key=>$field){
-                $this->{$field} = $data[$field];
+                if(isset($data[$field]))
+                {
+                    $this->{$field} = $data[$field];
+                }
             }
             return TRUE;
         }

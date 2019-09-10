@@ -5,7 +5,20 @@
 
     class userController extends baseController {
         public function loginAction(){
-            
+            if($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+                if ($user = userModel::varification($_POST['Email']))
+                {
+                    $userPassword = new userModel;
+                    $userPassword->Password=$_POST['Password'];
+                    $password = $userPassword::passwordHasher();
+                    if($password == $user->Password)
+                    {
+                        $this->autorizationAction($user->Email, $user->Name, $user->Surname, $user->Phone );
+                        $this->render('views/home/index.php', ['layout'=>True]);
+                    }
+                }
+            }
         }
 
         public function registrationAction(){
@@ -15,11 +28,16 @@
                     $user = new userModel;
                     if($user->tryMap($_POST)){
                         $user->insert();
-                        $this->Autorization($user->Email);
+                        $this->autorizationAction($user->Email, $user->Name, $user->Surname, $user->Phone);
                         $this->render('views/home/index.php', ['layout'=>True]);
                     }
                 }
             }
+        }
+        public function logoutAction(){
+            if(!isset($_SESSION)) session_start();            
+            session_destroy();
+            $this->render('views/home/index.php', ['layout'=>True]);
         }
         public function checkoutAction(){
             $this->render('views/user/checkout.php', ['layout'=>True]);
@@ -33,18 +51,19 @@
         public function myAccountAction(){
             $this->render('views/user/myAccount.php', ['layout'=>True]);
         }
-
-        public  function Autorization($login){
-        if (session_status()<>2) session_start();
-        $_SESSION["Autorization"]=TRUE;
-        $_SESSION["login"]=$login;
-        }
-    
-        public function ExiteAction(){
+        public function autorizationAction($Email, $Name, $Surname, $Phone){
             if (session_status()<>2) session_start();
-            session_unset();
-            session_destroy();
-            $this->render('views/user/index.php', ['layout'=>True]);
-           
+            $_SESSION["Autorization"] = TRUE;
+            $_SESSION["Email"] = $Email;
+            $_SESSION["Name"] = $Name;
+            $_SESSION["Surname"] = $Surname;
+            $_SESSION["Phone"] = $Phone;
+        }
+
+        public function editAction(){
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                 
+            }
+            
         }
     }

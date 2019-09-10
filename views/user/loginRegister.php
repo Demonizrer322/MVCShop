@@ -28,7 +28,7 @@
                                 <h2>Login</h2>
                             </div>
                             <div class="login-form">
-                                <form action="#" method="POST">
+                                <form action="/user/login" method="POST">
                                     <div class="form-fild">
                                         <p><label>Email <span class="required">*</span></label></p>
                                         <input name="Email" value="" type="text">
@@ -38,7 +38,7 @@
                                         <input name="Password" value="" type="password">
                                     </div>
                                     <div class="login-submit">
-                                        <button type="submit" class="btn">Login</button>
+                                        <button id="enterBtn" type="submit" class="btn">Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -54,16 +54,16 @@
                             <div class="register-form">
                                 <form action="/user/registration" method="POST">
                                     <div class="form-fild">
-                                        <p><label>Email <span class="required">*</span></label></p>
-                                        <input name="Email" value="" type="text">
-                                    </div>
-                                    <div class="form-fild">
                                         <p><label>Name <span class="required">*</span></label></p>
                                         <input name="Name" value="" type="text">
                                     </div>
                                     <div class="form-fild">
                                         <p><label>Surname <span class="required">*</span></label></p>
                                         <input name="Surname" value="" type="text">
+                                    </div>
+                                    <div class="form-fild">
+                                        <p><label>Email <span class="required">*</span></label></p>
+                                        <input name="Email" value="" type="text">
                                     </div>
                                     <div class="form-fild">
                                         <p><label>Password <span class="required">*</span></label></p>
@@ -74,7 +74,7 @@
                                         <input name="Phone" value="" type="phone">
                                     </div>
                                     <div class="register-submit">
-                                        <button type="submit" class="btn">Register</button>
+                                        <button id="enter" type="submit" class="btn">Register</button>
                                     </div>
                                 </form>
                             </div>
@@ -85,35 +85,3 @@
             </div>
         </div>
         <!--Login Register section end-->
-        <!-- Newsletter Section Start -->
-        <div class="newsletter-section section bg-gray-two pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-95 pb-lg-75 pb-md-65 pb-sm-60 pb-xs-50">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h2>Subscribe Our Newsletter</h2>
-                            <p>Subscribe Today for free and save 10% on your first purchase.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="newsletter-wrap">
-                            <div class="newsletter-form">
-                                <form id="mc-form" class="mc-form">
-                                    <input type="email" placeholder="Enter Your Email Address Here..." required>
-                                    <button type="submit" value="submit">SUBSCRIBE!</button>
-                                </form>
-
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Section End -->

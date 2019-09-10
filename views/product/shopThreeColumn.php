@@ -1,6 +1,3 @@
-<?php
-    
-?>
         <!-- Page Banner Section Start -->
         <div class="page-banner-section section bg-image" data-bg="assets/images/bg/breadcrumb.png">
             <div class="container">
@@ -33,10 +30,7 @@
                                         <div class="grid-list-option d-flex">
                                             <ul class="nav">
                                                 <li>
-                                                    <a class="active show" data-toggle="tab" href="#grid"><i class="fa fa-th"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a data-toggle="tab" href="#list" class=""><i class="fa fa-th-list"></i></a>
+                                                    <a class="show" data-toggle="tab" href="#grid"><i class="fa fa-th"></i></a>
                                                 </li>
                                             </ul>
                                             <p>Showing 1–9 of 41 results</p>
@@ -70,19 +64,18 @@
                                                         <div class="product-grid-view">
                                                             <div class="row">
                                                             <?php
-                                                            foreach($model as $card){  
-                                                               //var_dump($card);
+                                                                for($a = 0; $a < 9; $a++)
+                                                                {
                                                             ?>
                                                                 <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                    <!--  Single Grid product Start -->
                                                                     <div class="single-grid-product mb-40">
                                                                         <div class="product-image">
-                                                                            <div class="product-label">
+                                                                            <!-- <div class="product-label">
                                                                                 <span>-20%</span>
-                                                                            </div>
-                                                                            <a href="single-product.php">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-1.jpg" class="img-fluid" alt="">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                                                            </a>
+                                                                            </div> -->
+                                                                            <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>">
+                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt=""></a>
                                                                             <div class="product-action">
                                                                                 <ul>
                                                                                     <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
@@ -92,396 +85,28 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="product-content">
-                                                                            <h3 class="title"> <a href="single-product.php"><?=$card->Name?></a></h3>
-                                                                            <p class="product-price"><span class="discounted-price"><?=$card->Price?></span> <span class="main-price discounted">$230.00</span></p>
+                                                                            <h3 class="title"> <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>"><?=$model[$a]->Name?></a></h3>
+                                                                            <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$model[$a]->Price?></span></p>
                                                                         </div>
                                                                     </div>
+                                                                    <!--  Single Grid product End -->
                                                                 </div>
-                                                                <?php
-                                                                    }
-                                                                ?>
+                                                            <?php
+                                                                }
+                                                            ?>
                                                             </div>
-                                                           
-                                                        </div>
-                                                    </div>
-                                                    <div id="list" class="tab-pane fade">
-                                                        <div class="product-list-view">
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span class="sale">New</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-3.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-4.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Miro Dining Table</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$170.00</span> <span class="main-price discounted">$210.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span class="sale">New</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-1.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Stylish Design Chair</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$190.00</span> <span class="main-price discounted">$230.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span class="sale">New</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-3.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-4.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Janus Table Lamp</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$130.00</span> <span class="main-price discounted">$150.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span class="sale">New</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-5.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-6.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Normal Dining chair</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$190.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span class="sale">Sale</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-7.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-8.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Affordances Side Table</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$130.00</span> </p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span>-20%</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-10.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-11.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Hot Design Table</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$153.00</span> </p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <div class="product-label">
-                                                                                    <span>-29%</span>
-                                                                                </div>
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-12.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-13.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Outdoor Lock Chair</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$190.00</span> <span class="main-price discounted">$230.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
-                                                            <!-- Single List Product Start -->
-                                                            <div class="product-list-item mb-40">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-6">
-                                                                        <div class="single-grid-product">
-                                                                            <div class="product-image">
-                                                                                <a href="single-product.php">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-16.jpg" class="img-fluid" alt="">
-                                                                                    <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/product/product-15.jpg" class="img-fluid" alt="">
-                                                                                </a>
-
-                                                                                <div class="product-action">
-                                                                                    <ul>
-                                                                                        <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                        <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                                                        <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-6">
-                                                                        <div class="product-content-shop-list">
-                                                                            <div class="product-content">
-                                                                                <h3 class="title"> <a href="single-product.php">Normal Dining chair</a></h3>
-                                                                                <div class="product-category-rating">
-                                                                                    <span class="rating">
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star active"></i>
-                                                                                <i class="fa fa-star-o"></i>
-                                                                            </span>
-                                                                                    <span class="review"><a href="#">(1 review)</a></span>
-                                                                                </div>
-                                                                                <p class="product-price"><span class="discounted-price">$287.00</span></p>
-                                                                                <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Single List Product Start -->
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="row mb-30 mb-sm-40 mb-xs-30">
                                         <div class="col">
                                             <ul class="page-pagination">
                                                 <li class="active"><a href="#">01</a></li>
-                                                <li><a href="#">02</a></li>
+                                                <li><a class="page-btn" href="#">02</a></li>
                                                 <li><a href="#">03</a></li>
                                                 <li><a href="#">04</a></li>
                                                 <li><a href="#">05</a></li>
@@ -497,35 +122,3 @@
             </div>
         </div>
         <!-- Shop Section End -->
-        <!-- Newsletter Section Start -->
-        <div class="newsletter-section section bg-gray-two pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-95 pb-lg-75 pb-md-65 pb-sm-60 pb-xs-50">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h2>Subscribe Our Newsletter</h2>
-                            <p>Subscribe Today for free and save 10% on your first purchase.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="newsletter-wrap">
-                            <div class="newsletter-form">
-                                <form id="mc-form" class="mc-form">
-                                    <input type="email" placeholder="Enter Your Email Address Here..." required>
-                                    <button type="submit" value="submit">SUBSCRIBE!</button>
-                                </form>
-
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Section End -->
