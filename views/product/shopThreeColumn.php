@@ -56,15 +56,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="shop-product">
-                                        
                                                 <div id="myTabContent-2" class="tab-content">
                                                     <div id="grid" class="tab-pane fade active show">
                                                         <div class="product-grid-view">
-                                                        
                                                             <div class="row">
                                                             <?php
                                                                 for($a = 0; $a < 9; $a++)
@@ -72,15 +69,13 @@
                                                             ?>
                                                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                                                     <!--  Single Grid product Start -->
-                                                                    
                                                                     <div class="single-grid-product mb-40">
                                                                         <div class="product-image">
                                                                             <!-- <div class="product-label">
                                                                                 <span>-20%</span>
                                                                             </div> -->
                                                                             <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt="">                                                                            </a>
-
+                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt=""></a>
                                                                             <div class="product-action">
                                                                                 <ul>
                                                                                     <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
@@ -94,18 +89,15 @@
                                                                             <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$model[$a]->Price?></span></p>
                                                                         </div>
                                                                     </div>
-                                                                    
                                                                     <!--  Single Grid product End -->
                                                                 </div>
                                                             <?php
                                                                 }
                                                             ?>
                                                             </div>
-                                                        
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +106,7 @@
                                         <div class="col">
                                             <ul class="page-pagination">
                                                 <li class="active"><a href="#">01</a></li>
-                                                <li><a href="#">02</a></li>
+                                                <li><a class="page-btn" href="#">02</a></li>
                                                 <li><a href="#">03</a></li>
                                                 <li><a href="#">04</a></li>
                                                 <li><a href="#">05</a></li>
@@ -130,35 +122,3 @@
             </div>
         </div>
         <!-- Shop Section End -->
-        <!-- Newsletter Section Start -->
-        <div class="newsletter-section section bg-gray-two pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-95 pb-lg-75 pb-md-65 pb-sm-60 pb-xs-50">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h2>Subscribe Our Newsletter</h2>
-                            <p>Subscribe Today for free and save 10% on your first purchase.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="newsletter-wrap">
-                            <div class="newsletter-form">
-                                <form id="mc-form" class="mc-form">
-                                    <input type="email" placeholder="Enter Your Email Address Here..." required>
-                                    <button type="submit" value="submit">SUBSCRIBE!</button>
-                                </form>
-
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Section End -->
