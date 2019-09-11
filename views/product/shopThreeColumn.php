@@ -1,7 +1,6 @@
         <?php
             $limit=end($model);
             array_pop($model);
-            var_dump($model);
         ?>
         
         <!-- Page Banner Section Start -->
@@ -73,7 +72,7 @@
                                                                 foreach($model as $row)
                                                                 {
                                                             ?>
-                                                                <div class="col-lg-4 col-md-6 col-sm-6" id="containerLoad">
+                                                                <div class="col-lg-4 col-md-6 col-sm-6">
                                                                     <!--  Single Grid product Start -->
                                                                     <div class="single-grid-product mb-40">
                                                                         <div class="product-image">
@@ -85,7 +84,7 @@
                                                                             <div class="product-action">
                                                                                 <ul>
                                                                                     <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                    <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                                                                    <li id="openModal" data-id="<?=$row->Id?>"><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
                                                                                     <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
                                                                                 </ul>
                                                                             </div>
@@ -111,7 +110,6 @@
                                     <div class="row mb-30 mb-sm-40 mb-xs-30">
                                         <div class="col">
                                             <ul class="page-pagination">
-                                                <li><a id="prev-page-btn" href="#">Prev</a></li>
                                                 <li><a id="next-page-btn" href="#">Next</a></li>
                                             </ul>
                                         </div>

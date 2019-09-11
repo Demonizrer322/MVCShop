@@ -23,8 +23,14 @@
         }
         public function pagesAction(){
             if($_SERVER["REQUEST_METHOD"] == "POST"){
-                $pageOfProducts = productModel::selectAll($_POST['start'],$_POST['end']);
+                $start = $_POST['start'];
+                $end = $_POST['end'];
+                $pageOfProducts = productModel::selectAll((int)$start, (int)$end);
                 echo json_encode($pageOfProducts);
             }
+        }
+        public function getProductAction(){
+            $model = productModel::singleProduct($_GET);
+            echo json_encode($model);
         }
     }

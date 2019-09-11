@@ -168,7 +168,9 @@
                                             <a href="#"><i class="fa fa-angle-right"></i></a>
                                         </div>
                                         <!--Product Nav End-->
-                                        <h2>Aliquam lobortis est turpis mauris egestas eget</h2>
+                                        <div id="modalName">
+                                            
+                                        </div>
                                         <div class="single-product-reviews">
                                             <i class="fa fa-star active"></i>
                                             <i class="fa fa-star active"></i>
@@ -178,11 +180,11 @@
                                             <a class="review-link" href="#">(1 customer review)</a>
                                         </div>
                                         <div class="single-product-price">
-                                            <span class="price new-price">$66.00</span>
-                                            <span class="regular-price">$77.00</span>
+                                            <span class="price new-price" id="modalPrice"></span>
+                                            <!-- <span class="regular-price">$77.00</span> -->
                                         </div>
                                         <div class="product-description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
+                                            <p id="modalDescription"></p>
                                         </div>
                                         <div class="single-product-quantity">
                                             <form class="add-quantity" action="#">
