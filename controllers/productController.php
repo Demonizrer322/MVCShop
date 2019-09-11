@@ -21,4 +21,10 @@
             $model = productModel::singleProduct();
             $this->render('views/product/singleProductTabstyle3.php', ['layout'=>True, 'model'=>$model]);
         }
+        public function pagesAction(){
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                $pageOfProducts = productModel::selectAll($_POST['start'],$_POST['end']);
+                echo json_encode($pageOfProducts);
+            }
+        }
     }

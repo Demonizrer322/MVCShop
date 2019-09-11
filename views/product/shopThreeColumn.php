@@ -1,3 +1,9 @@
+        <?php
+            $limit=end($model);
+            array_pop($model);
+            var_dump($model);
+        ?>
+        
         <!-- Page Banner Section Start -->
         <div class="page-banner-section section bg-image" data-bg="assets/images/bg/breadcrumb.png">
             <div class="container">
@@ -33,7 +39,7 @@
                                                     <a class="show" data-toggle="tab" href="#grid"><i class="fa fa-th"></i></a>
                                                 </li>
                                             </ul>
-                                            <p>Showing 1–9 of 41 results</p>
+                                            <p>Showing <?=$limit['start']?>–<?=$limit['start']+9?> of * results</p>
                                         </div>
                                         <!--Toolbar Short Area Start-->
                                         <div class="toolbar-short-area d-md-flex align-items-center">
@@ -56,26 +62,26 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="row">
+                                    <div class="row" id="product-container">
                                         <div class="col-12">
                                             <div class="shop-product">
                                                 <div id="myTabContent-2" class="tab-content">
                                                     <div id="grid" class="tab-pane fade active show">
                                                         <div class="product-grid-view">
-                                                            <div class="row">
+                                                            <div class="row" id="addLoad">
                                                             <?php
-                                                                for($a = 0; $a < 9; $a++)
+                                                                foreach($model as $row)
                                                                 {
                                                             ?>
-                                                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                <div class="col-lg-4 col-md-6 col-sm-6" id="containerLoad">
                                                                     <!--  Single Grid product Start -->
                                                                     <div class="single-grid-product mb-40">
                                                                         <div class="product-image">
                                                                             <!-- <div class="product-label">
                                                                                 <span>-20%</span>
                                                                             </div> -->
-                                                                            <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>">
-                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$model[$a]->MainImage?>" class="main-image" alt=""></a>
+                                                                            <a id="hrefsingleProduct" href="/product/singleProductTabstyle3?IdProduct=<?=$row->Id?>">
+                                                                                <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$row->MainImage?>" class="main-image" alt=""></a>
                                                                             <div class="product-action">
                                                                                 <ul>
                                                                                     <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
@@ -85,8 +91,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="product-content">
-                                                                            <h3 class="title"> <a href="/product/singleProductTabstyle3?IdProduct=<?=$model[$a]->Id?>"><?=$model[$a]->Name?></a></h3>
-                                                                            <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$model[$a]->Price?></span></p>
+                                                                            <h3 class="title"> <a href="/product/singleProductTabstyle3?IdProduct=<?=$row->Id?>"><?=$row->Name?></a></h3>
+                                                                            <p class="product-price"><!--<span class="discounted-price">$</span>--> <span class="main-price">$<?=$row->Price?></span></p>
                                                                         </div>
                                                                     </div>
                                                                     <!--  Single Grid product End -->
@@ -105,12 +111,8 @@
                                     <div class="row mb-30 mb-sm-40 mb-xs-30">
                                         <div class="col">
                                             <ul class="page-pagination">
-                                                <li class="active"><a href="#">01</a></li>
-                                                <li><a class="page-btn" href="#">02</a></li>
-                                                <li><a href="#">03</a></li>
-                                                <li><a href="#">04</a></li>
-                                                <li><a href="#">05</a></li>
-                                                <li><a href="#">Next</a></li>
+                                                <li><a id="prev-page-btn" href="#">Prev</a></li>
+                                                <li><a id="next-page-btn" href="#">Next</a></li>
                                             </ul>
                                         </div>
                                     </div>

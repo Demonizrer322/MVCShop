@@ -9,19 +9,22 @@ class productModel extends baseModel {
         return ['Id','Name','QuantityInStock','Description','Price','MainImage','ProductImageId'];
     }
 
-    public static function selectAll(){
+    public static function selectAll($start = 0,$end = 3){
         try 
         {
             $conn = new PDO("mysql:host=".self::ServerName.";dbname=".self::DBName, self::UserName, self::Password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql="SELECT * FROM ".self::tableName;
-            $result=$conn->query($sql);
-            $resArray=[];
+            $sql = "SELECT * FROM ".self::tableName." ORDER BY Id LIMIT ".$start.", ".$end;
+            $result = $conn->query($sql);
+            $resArray = [];
             foreach ($result as $array) { 
                 $model = new productModel;
                 $model->tryMap($array);
                 array_push($resArray, $model);
             }
+            $limit['start'] = $start;
+            $limit['end'] = $end;
+            array_push($resArray, $limit);
         }
         catch(PDOException $e)
         {

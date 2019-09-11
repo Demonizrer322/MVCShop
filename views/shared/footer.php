@@ -239,7 +239,6 @@
     <script src="http://<?=$_SERVER['HTTP_HOST']?>/assets/js/plugins/plugins.js"></script>
     <script src="http://<?=$_SERVER['HTTP_HOST']?>/assets/js/main.js"></script>
     <script src="http://<?=$_SERVER['HTTP_HOST']?>/assets/js/script.js"></script>
-
 </body>
 
 </html>
