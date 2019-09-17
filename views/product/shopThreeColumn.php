@@ -83,8 +83,8 @@
                                                                                 <img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$row->MainImage?>" class="main-image" alt=""></a>
                                                                             <div class="product-action">
                                                                                 <ul>
-                                                                                    <li><a href="cart.php"><i class="fa fa-cart-plus"></i></a></li>
-                                                                                    <li id="openModal" data-id="<?=$row->Id?>"><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                                                                    <li class="addingToCart" data-id="<?=$row->Id?>"><a href="#"><i class="fa fa-cart-plus"></i></a></li>
+                                                                                    <li class="openModal" data-id="<?=$row->Id?>"><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
                                                                                     <li><a href="wishlit.php"><i class="fa fa-heart-o"></i></a></li>
                                                                                 </ul>
                                                                             </div>

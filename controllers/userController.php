@@ -20,7 +20,6 @@
                 }
             }
         }
-
         public function registrationAction(){
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $userVarification = userModel::varification($_POST['Email']);
@@ -37,6 +36,7 @@
         public function logoutAction(){
             if(!isset($_SESSION)) session_start();            
             session_destroy();
+            $_SESSION['Email'] = NULL;
             $this->render('views/home/index.php', ['layout'=>True]);
         }
         public function checkoutAction(){

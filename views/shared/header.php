@@ -24,7 +24,13 @@
 </head>
 
 <body>
-
+    <?php
+        if($_COOKIE['sessionId'] == '' || $_COOKIE['sessionId'] == NULL)
+        {
+            $sessionId = sha1(md5(microtime().'90CV2c10DF237dDFG2bfDF863c320FGDFbbKLe04e8c'.microtime()));
+            setcookie('sessionId',$sessionId,time() + (86400 * 30), '/', $_SERVER['HTTP_HOST'], false);
+        }
+    ?>
     <div id="main-wrapper">
 
         <!--Header section start-->
@@ -49,7 +55,7 @@
                                         <li><a href="#">Pages</a>
                                             <ul class="sub-menu">
                                                 <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/compare">Compare</a></li>
-                                                <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/cart">Shopping Cart</a></li>
+                                                <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/cart/cart">Shopping Cart</a></li>
                                                 <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/user/checkout">Checkout</a></li>
                                                 <li><a href="http://<?=$_SERVER['HTTP_HOST']?>/product/wishlist">Wishlist</a></li>
                                             </ul>

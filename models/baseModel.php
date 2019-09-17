@@ -13,4 +13,14 @@
             }
             return TRUE;
         }
+        public function secondTryMap($data){
+            $rules = $this->secondRules();
+            foreach($rules as $key=>$field){
+                if(isset($data[$field]))
+                {
+                    $this->{$field} = $data[$field];
+                }
+            }
+            return TRUE;
+        }
     }

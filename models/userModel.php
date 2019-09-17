@@ -8,7 +8,7 @@
         const soult = "qwerty dvcde";
 
         public function rules(){
-            return ['Name','Surname','Email','Password','Phone'];
+            return ['Name','Surname','Email','Password','Phone','SessionId'];
         }
         public static function varification($Email){
             $conn = new PDO("mysql:host=".self::ServerName.";dbname=".self::DBName, self::UserName, self::Password);

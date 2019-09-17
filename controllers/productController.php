@@ -8,9 +8,6 @@
             $model = productModel::selectAll();
             $this->render('views/product/shopThreeColumn.php', ['layout'=>True, 'model'=>$model]);
         }
-        public function cartAction(){
-            $this->render('views/product/cart.php', ['layout'=>True]);
-        }
         public function compareAction(){
             $this->render('views/product/compare.php', ['layout'=>True]);
         }
@@ -26,11 +23,14 @@
                 $start = $_POST['start'];
                 $end = $_POST['end'];
                 $pageOfProducts = productModel::selectAll((int)$start, (int)$end);
-                echo json_encode($pageOfProducts);
+                echo(json_encode($pageOfProducts));
             }
         }
         public function getProductAction(){
             $model = productModel::singleProduct($_GET);
-            echo json_encode($model);
+            for($a = 0; $a < $model; $a++)
+            {
+                echo(json_encode($model[$a]));
+            }
         }
     }

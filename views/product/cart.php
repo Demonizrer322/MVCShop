@@ -37,36 +37,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-3.jpg" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Black Cable Restorer</a></td>
-                                        <td class="pro-price"><span>$25.00</span></td>
+                                <?php
+                                    foreach($model as $row)
+                                    {
+                                ?>
+                                        <tr>
+                                        <td class="pro-thumbnail"><a href="#"><img src="http://<?=$_SERVER['HTTP_HOST']?>/assets/images/productImages/<?=$row->MainImage?>" alt="Product"></a></td>
+                                        <td class="pro-title"><a href="#"><?=$row->Name?></a></td>
+                                        <td class="pro-price"><span class="priceValue">$<?=$row->Price?></span></td>
                                         <td class="pro-quantity">
-                                            <div class="pro-qty"><input type="number" value="1"></div>
+                                            <div class="pro-qty quantity-info"><input class="quantity-info-input" type="number" value="1"></div>
                                         </td>
-                                        <td class="pro-subtotal"><span>$25.00</span></td>
+                                        <td class="pro-subtotal"><span class="totalPrice">$<?=$row->Price?></span></td>
                                         <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                                     </tr>
-                                    <tr>
-                                        <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-5.jpg" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Black Die Grinder</a></td>
-                                        <td class="pro-price"><span>$25.00</span></td>
-                                        <td class="pro-quantity">
-                                            <div class="pro-qty"><input type="number" value="1"></div>
-                                        </td>
-                                        <td class="pro-subtotal"><span>$25.00</span></td>
-                                        <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pro-thumbnail"><a href="#"><img src="assets/images/product/product-7.jpg" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Orange Decker drill</a></td>
-                                        <td class="pro-price"><span>$25.00</span></td>
-                                        <td class="pro-quantity">
-                                            <div class="pro-qty"><input type="number" value="1"></div>
-                                        </td>
-                                        <td class="pro-subtotal"><span>$25.00</span></td>
-                                        <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    </tr>
+                                <?php
+                                    }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
